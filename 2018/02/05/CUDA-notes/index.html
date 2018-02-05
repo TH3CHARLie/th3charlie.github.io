@@ -6,17 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/1 | 宫水神社</title>
+  <title>CUDA-notes | 宫水神社</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="TH3CHARLie&apos;s personal blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="宫水神社">
-<meta property="og:url" content="http://yoursite.com/archives/2017/01/index.html">
+  <meta name="description" content="记录一下CUDA学习中的重要/易忘点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CUDA-notes">
+<meta property="og:url" content="http://yoursite.com/2018/02/05/CUDA-notes/index.html">
 <meta property="og:site_name" content="宫水神社">
-<meta property="og:description" content="TH3CHARLie&apos;s personal blog">
+<meta property="og:description" content="记录一下CUDA学习中的重要/易忘点">
+<meta property="og:updated_time" content="2018-02-05T16:06:32.408Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="宫水神社">
-<meta name="twitter:description" content="TH3CHARLie&apos;s personal blog">
+<meta name="twitter:title" content="CUDA-notes">
+<meta name="twitter:description" content="记录一下CUDA学习中的重要/易忘点">
   
     <link rel="alternative" href="/atom.xml" title="宫水神社" type="application/atom+xml">
   
@@ -142,60 +143,136 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-CUDA-notes" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/28/hello-miyamizujinjya/" class="archive-article-date">
-  	<time datetime="2017-01-28T15:10:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-28</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/28/hello-miyamizujinjya/">Hello Miyamizujinjya!</a>
+    <h1 class="article-title" itemprop="name">
+      CUDA-notes
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/02/05/CUDA-notes/" class="archive-article-date">
+  	<time datetime="2018-02-05T15:58:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>记录一下CUDA学习中的重要/易忘点</p>
+<a id="more"></a>
+<h2 id="CUDA-Programming-A-Developer’s-Guide-to-Parallel-Computing-with-GPUs"><a href="#CUDA-Programming-A-Developer’s-Guide-to-Parallel-Computing-with-GPUs" class="headerlink" title="CUDA Programming A Developer’s Guide to Parallel Computing with GPUs"></a><em>CUDA Programming A Developer’s Guide to Parallel Computing with GPUs</em></h2><ul>
+<li>chap 5 Warp<ul>
+<li>一个线程束(warp)是一个单独的执行单元。在分支中，不谨慎的代码会导致严重的阻塞，一个warp由于是统一取指令，所以必须得等前一步做完才能做下一步。为了解决这种问题，需要了解到指令层，硬件的调度是基于半个warp，所以如果能把连续的半个warp划分到同一段分支中，就可以达到100%的利用率</li>
+<li>用warpSize而不是hard-coded的32</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">thoughts</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CUDA</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/02/05/CUDA-notes/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/02/03/database-syteam-notes/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">database syteam notes</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -218,8 +295,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

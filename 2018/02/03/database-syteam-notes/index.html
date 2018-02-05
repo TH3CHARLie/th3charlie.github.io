@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/1 | 宫水神社</title>
+  <title>database syteam notes | 宫水神社</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="TH3CHARLie&apos;s personal blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="宫水神社">
-<meta property="og:url" content="http://yoursite.com/archives/2017/01/index.html">
+  <meta name="description" content="在线SQL
+教材 database system concepts">
+<meta property="og:type" content="article">
+<meta property="og:title" content="database syteam notes">
+<meta property="og:url" content="http://yoursite.com/2018/02/03/database-syteam-notes/index.html">
 <meta property="og:site_name" content="宫水神社">
-<meta property="og:description" content="TH3CHARLie&apos;s personal blog">
+<meta property="og:description" content="在线SQL
+教材 database system concepts">
+<meta property="og:updated_time" content="2018-02-05T16:00:18.635Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="宫水神社">
-<meta name="twitter:description" content="TH3CHARLie&apos;s personal blog">
+<meta name="twitter:title" content="database syteam notes">
+<meta name="twitter:description" content="在线SQL
+教材 database system concepts">
   
     <link rel="alternative" href="/atom.xml" title="宫水神社" type="application/atom+xml">
   
@@ -142,60 +146,204 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-database-syteam-notes" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/28/hello-miyamizujinjya/" class="archive-article-date">
-  	<time datetime="2017-01-28T15:10:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-28</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/28/hello-miyamizujinjya/">Hello Miyamizujinjya!</a>
+    <h1 class="article-title" itemprop="name">
+      database syteam notes
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/02/03/database-syteam-notes/" class="archive-article-date">
+  	<time datetime="2018-02-03T05:57:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_all" target="_blank" rel="external">在线SQL</a></p>
+<p>教材 database system concepts</p>
+<a id="more"></a>
+<ul>
+<li><p>superkey:用于区分relation中的entity的attribute集合</p>
+</li>
+<li><p>candidate key: superkey中，任何真子集都无法作为superkey的集合</p>
+</li>
+<li><p>数据类型：</p>
+<ul>
+<li>char(n) 定长字符串，不足补空格</li>
+<li>varchar(n)最长为n的字符串，不同实现在处理长度小于n时有区别</li>
+<li>int samllint 整型 小整型</li>
+<li>numeric(p,d) precision,decimal p代表p位数字，其中d位在小数点右侧，如numeric(3,1)可精确存储44.5而不能444.5 0.32</li>
+<li>real, double precision 浮点数 双精度浮点数</li>
+<li>float(n) 精度至少为n位的浮点数</li>
+</ul>
+<p>推荐使用varchar 而不是char</p>
+</li>
+<li><p>建表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> department</div><div class="line">	(dept_name <span class="built_in">varchar</span> (<span class="number">20</span>),</div><div class="line">    building <span class="built_in">varchar</span> (<span class="number">15</span>),</div><div class="line">    budget <span class="built_in">numeric</span>(<span class="number">12</span>,<span class="number">2</span>),</div><div class="line">     <span class="comment">-- integrity constraint</span></div><div class="line">    primary <span class="keyword">key</span>(dept_name));</div><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> instructor</div><div class="line">	(<span class="keyword">ID</span> <span class="built_in">varchar</span>(<span class="number">5</span>),</div><div class="line">     <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="literal">null</span>,</div><div class="line">     dept_name <span class="built_in">varchar</span>(<span class="number">20</span>),</div><div class="line">     salary <span class="built_in">numeric</span>(<span class="number">8</span>,<span class="number">2</span>),</div><div class="line">     primary <span class="keyword">key</span> (<span class="keyword">ID</span>),</div><div class="line">     foreign <span class="keyword">key</span> (dept_name) <span class="keyword">references</span> department);</div></pre></td></tr></table></figure>
+<p>以上为例子</p>
+</li>
+<li><p>integrity constraint(完整性约束)</p>
+<ul>
+<li>primary key($A_1, …, A_n$): 注明属性构成primary key, PK必须唯一且非空</li>
+<li>foreign key ($A_1, …, A_n$) references $s$:约束属性组必须在$s$中</li>
+<li>not null： 该属性不能为空</li>
+</ul>
+</li>
+<li><p>删除关系:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">drop</span> <span class="keyword">table</span> r</div></pre></td></tr></table></figure>
+<p>删除所有条目以及关系</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">delete</span> <span class="keyword">from</span> r</div></pre></td></tr></table></figure>
+<p>删除所有条目，但保留关系</p>
+</li>
+<li><p>添加/去除属性：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">table</span> r <span class="keyword">add</span> A D;</div><div class="line"><span class="keyword">alter</span> <span class="keyword">table</span> r <span class="keyword">drop</span> A;</div></pre></td></tr></table></figure>
+<p>A是属性，D是域</p>
+<p>很多数据库不支持去掉属性</p>
+</li>
+<li><p>单关系查询：</p>
+<ul>
+<li><p>基本结构 <strong>select from where</strong> 查询输入是<strong>from</strong>中的关系，基于关系做<strong>where</strong>和<strong>select</strong>上的运算</p>
+</li>
+<li><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">name</span></div><div class="line"><span class="keyword">from</span> instructor;</div></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> dept_name</div><div class="line"><span class="keyword">from</span> instructor;</div></pre></td></tr></table></figure>
+</li>
+<li><p>distinct 删除重复，all 显示不删除重复</p>
+</li>
+<li><p><strong>select</strong>中可使用+ - * / 对数值进行运算，返回值为运算后结果，不改变原表</p>
+</li>
+<li><p><strong>where</strong>谓词 用<strong>and</strong>和<strong>or</strong>连接</p>
+</li>
+</ul>
+</li>
+<li><p>多关系查询</p>
+<ul>
+<li><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">name</span>, instructor, dept_name</div><div class="line"><span class="keyword">from</span> instructor, department</div><div class="line"><span class="keyword">where</span> instructor.dept_name = department.dept_name;</div><div class="line"><span class="comment">-- equal</span></div><div class="line"><span class="comment">-- from instructor natural joins department</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>join .. using (…)</p>
+</li>
+<li><p>rename: as </p>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">thoughts</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">database</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/02/03/database-syteam-notes/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/02/05/CUDA-notes/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          CUDA-notes
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2018/02/02/推歌漫谈/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">推歌·漫谈</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -218,8 +366,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
