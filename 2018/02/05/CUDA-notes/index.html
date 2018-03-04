@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/05/CUDA-notes/index.html">
 <meta property="og:site_name" content="宫水神社">
 <meta property="og:description" content="记录一下CUDA学习中的重要/易忘点">
-<meta property="og:updated_time" content="2018-02-05T16:06:32.408Z">
+<meta property="og:updated_time" content="2018-02-05T16:37:35.687Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CUDA-notes">
 <meta name="twitter:description" content="记录一下CUDA学习中的重要/易忘点">
@@ -169,6 +169,8 @@
 <li>chap 5 Warp<ul>
 <li>一个线程束(warp)是一个单独的执行单元。在分支中，不谨慎的代码会导致严重的阻塞，一个warp由于是统一取指令，所以必须得等前一步做完才能做下一步。为了解决这种问题，需要了解到指令层，硬件的调度是基于半个warp，所以如果能把连续的半个warp划分到同一段分支中，就可以达到100%的利用率</li>
 <li>用warpSize而不是hard-coded的32</li>
+<li>一个SM一次能调度的线程是有限的，就计算能力2.X的（现在已经7.0/8.0了，但理念应该是一致的）GPU来说，一个SM一次能调度1536个线程，而一个Block最多支持1024个线程。这里显然出现了一个问题，因为一个Block必须全部执行完才能从SM中撤出，存在一种可能的情况就是Block中大量warp等一个warp导致整体效率下降。直观的想法是把thread per block调低，但是这样又带来了调度次数的开销。所以解决办法是查手册找到GPU utilization 为100%的 thread per block</li>
+<li>在调度问题上，尽可能使block的数目是SM的整数倍</li>
 </ul>
 </li>
 </ul>
@@ -254,6 +256,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/03/03/第12回声優アワード/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          第12回声優アワード
+        
+      </div>
+    </a>
   
   
     <a href="/2018/02/03/database-syteam-notes/" id="article-nav-older" class="article-nav-link-wrap">
@@ -386,15 +397,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">anime</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">anime</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">music</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">KurosawoTomoyo</a>
               </li>
             
             <div class="clearfix"></div>
