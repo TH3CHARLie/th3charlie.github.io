@@ -3,7 +3,7 @@ title: Hello Miyamizujinjya!
 tags: [thoughts]
 
 ---
-![宫水神社-night](/assets/postimg/hello-miyamizujinjya/hello-miyamizujinjya0.jpg)
+![宫水神社-night](/images/hello-miyamizujinjya/hello-miyamizujinjya0.jpg)
 
 总算是可以敲下这样的标题，自己的个人博客终于是有了一个雏形，终于有了用于胡思乱想和记录学习历程的地方。姑且算是自己又向前迈了一步吧。
 
