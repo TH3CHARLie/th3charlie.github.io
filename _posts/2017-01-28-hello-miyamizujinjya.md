@@ -19,4 +19,4 @@ tags: [thoughts]
 
 最后，欢迎来到宫水神社。
 
-![宫水神社-day](/assets/postimg/hello-miyamizujinjya/hello-miyamizujinjya1.jpg)
+![宫水神社-day](/images/hello-miyamizujinjya/hello-miyamizujinjya1.jpg)
