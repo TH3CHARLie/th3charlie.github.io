@@ -53,7 +53,7 @@ tomoyo是我很长时间内的精神支柱，4月份到7月份，她和京吹的
 
 <center>可爱的限定米莉亚</center>
 
-<br></br>
+<br><br>
 
 ![twitter](/images/seiyuu-award/twitter1.PNG)
 
@@ -61,6 +61,6 @@ tomoyo是我很长时间内的精神支柱，4月份到7月份，她和京吹的
 
 <br><br>
 
-![photo](/images/seiyuu-award/twitter2.PNG)
+![photo](/images/seiyuu-award/twitter2.JPG)
 
 <center>喜悦</center>

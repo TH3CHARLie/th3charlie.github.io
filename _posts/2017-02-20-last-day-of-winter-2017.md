@@ -28,4 +28,4 @@ tags: [thoughts]
 ![Reunion](/images/last-day-of-winter-2017/reunion.jpg)
 
 <center>重聚</center>
-<center>PHOTO BY [Steven](https://www.zhihu.com/people/kuang-li-ming)</center>
+<center>PHOTO BY <a href="https://www.zhihu.com/people/kuang-li-ming">Steven</a></center>

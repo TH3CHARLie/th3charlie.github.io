@@ -13,7 +13,7 @@ tags: [anime, thoughts]
 
 之所以提到这样一个概念，要从刚刚补完的一部2010年的老番 [四叠半神话大系](http://bangumi.tv/subject/4019) 说起。前些日子在网易云上漫无目的的听歌，突然发现一张名为 [NOITAMINA FAN BEST](http://music.163.com/#/album?id=3121709) 的专辑，收录了 2005 - 2015 年倒A档动画的精选 OP/ED。边听边翻看评论，在这首[*迷子犬と雨のビート*](http://music.163.com/#/song?id=31649304) 为数不多的评论之下，看到了难得一见的一致高评价，再加上 “玫瑰色” “大学”这样几个诱人的名词，我觉得这会是一部很合我胃口的番。
 
-<center>![海报](/images/the-tatami-galaxy/poster.jpg)</center>
+![海报](/images/the-tatami-galaxy/poster.jpg){: .center-image}
 
 <center>四叠半神话大系</center>
 
@@ -59,7 +59,7 @@ tags: [anime, thoughts]
 
 后面的故事不必多说了，没有什么东西比已达成的恋情更不值得一提了，没有什么故事比一个人重新认识了人生更不值得一提了。
 
-![女神明石同学](/images/the-tatami-galaxy/akashi.jpg)
+![女神明石同学](/images/the-tatami-galaxy/akashi.jpg){: .center-image}
 
 <center>明石同学</center>
 
