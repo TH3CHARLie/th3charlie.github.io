@@ -14,7 +14,7 @@ If you have any questions, please feel free to reach [TH3CHARLie](mailto:th3char
 
 <!--more-->
 
-## Week 0(2020-05-17 - 2020-05-23)
+## Week 0: 2020-05-17 ~ 2020-05-23
 
 After discussions with both my mentors, we agree that I am familiar with the community now so we start the coding period a little bit early than the official date(June 1st) to buffer any unexpected delays.
 
