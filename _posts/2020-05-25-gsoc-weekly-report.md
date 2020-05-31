@@ -14,6 +14,26 @@ If you have any questions, please feel free to reach [TH3CHARLie](mailto:th3char
 
 <!--more-->
 
+## Week 1: 2020-05-24 ~ 2020-05-31
+
+In the first two days of the week, we reviewed and merged [python/mypy#8880](https://github.com/python/mypy/pull/8880) into the master branch. As a summary, #8880 brings:
+
+- A new `CallC` IR element, abstracting high-level code that eventually maps to C function calls. Compared to the very first implementation, the reviewed version added support of `error_kind` and void types(via `RType`)
+- Transform `str.join` from `PrimitiveOp` to `CallC`, along with IR dump test.
+
+On Tuesday, Jukka and I had our first weekly video meeting via Zoom. We discussed naming issues in the review. He clarified how steals and is_borrowed work(related to reference counting) and the difference between self.emitter.emit and self.emit(the latter one is just wrapper). We also talked about implementing ops with different features(name reference op, top-level function calls, boolean op, etc) to refine the design.
+
+As a result of our discussion, I implemented [python/mypy#8902](https://github.com/python/mypy/pull/8902) to support top-level function call. Different from the previous PR which only considers method call, this introduces a new op registry and modifies the IR building process accordingly. Besides the main idea, the PR has some other significant spots:
+
+- add type coercing between formal argument/return types and actual argument/result types
+- add `steals`
+- fix the error that `CallC` is always of `ERR_MAGIC`
+
+The PR is currently under review but it should be merged soon.
+
+Finally, starting from #8902, I will open separate, fine-grained issues on mypyc's tracker to better track our progress.
+
+
 ## Week 0: 2020-05-17 ~ 2020-05-23
 
 After discussions with both my mentors, we agree that I am familiar with the community now so we start the coding period a little bit early than the official date(June 1st) to buffer any unexpected delays.
