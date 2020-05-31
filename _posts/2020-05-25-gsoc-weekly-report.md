@@ -10,7 +10,9 @@ Some useful links:
 - [GSOC project page](https://summerofcode.withgoogle.com/projects/#4924815141502976)
 - [mypy issue page](https://github.com/mypyc/mypyc/issues/709): main discussions happen here and its linked PRs
 
-If you have any questions, please feel free to reach [TH3CHARLie](mailto:th3charlie@gmail.com)
+If you have any questions, please feel free to reach [TH3CHARLie](mailto:th3charlie@gmail.com).
+
+The following posts will be a stack, it always starts with the newest update.
 
 <!--more-->
 
