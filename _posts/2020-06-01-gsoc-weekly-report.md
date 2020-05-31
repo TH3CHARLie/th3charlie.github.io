@@ -33,7 +33,7 @@ As a result of our discussion, I implemented [python/mypy#8902](https://github.c
 
 The PR is currently under review but it should be merged soon.
 
-Finally, starting from #8902, I will open separate, fine-grained issues on mypyc's tracker to better track our progress.
+Finally, as Jukka suggested. starting from #8902, I will open separate, fine-grained issues on mypyc's tracker to better track our progress.
 
 
 ## Week 0: 2020-05-17 ~ 2020-05-23
