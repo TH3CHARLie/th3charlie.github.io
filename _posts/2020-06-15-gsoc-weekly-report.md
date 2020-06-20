@@ -15,6 +15,23 @@ If you have any questions, please feel free to reach [TH3CHARLie](mailto:th3char
 The following posts will be a stack, it always starts with the newest update.
 
 <!--more-->
+## Week 3: 2020-06-08 ~ 2020-06-14
+
+This week we focused on representing `name_ref` with a new IR element since it's semantically different from what `CallC` represents. The `name_ref_op`s load global names, therefore we purposed [#8973](https://github.com/python/mypy/pull/8973) as the first attempt. Soon, we realized that `LoadStatic` and `LoadGlobal` have similar purposes and should be merged eventually. Jukka also mentioned about moving mypyc's name generation/mangling logic from codegen to irbuild. Name generation is a little bit messy now since it happens in plenty of processes.
+
+After this refactoring, we should have a `LoadGlobal` IR that load a name without knowing all the name-related stuffs. The name generation logic for literal values is simple, while the one when groups and modules are involved is much more complicated. So it will be the focus of next week's first monthly meeting.
+
+As a summary, this week we have the following issues and PRs:
+
+- Issues:
+
+  - [Refactor LoadStatic](https://github.com/mypyc/mypyc/issues/736) ongoing
+  - [Refactor name generation logic](https://github.com/mypyc/mypyc/issues/737) ongoing
+
+- PRs:
+  - [[mypyc] Support var arg in CallC, replace new_dict_op](https://github.com/python/mypy/pull/8948): merged
+  - [[mypyc] Add LoadGlobal IR](https://github.com/python/mypy/pull/8973) WIP
+  - [[mypyc] Refactor name generation in Load/InitStatic](https://github.com/python/mypy/pull/8987) WIP
 
 ## Week 2: 2020-06-01 ~ 2020-06-07
 
