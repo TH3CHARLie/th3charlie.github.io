@@ -15,6 +15,27 @@ If you have any questions, please feel free to reach [TH3CHARLie](mailto:th3char
 The following posts will be a stack, it always starts with the newest update.
 
 <!--more-->
+## Week 4: 2020-06-15 ~ 2020-06-21
+
+This week started with refactoring [#8973](https://github.com/python/mypy/pull/8973), we decided to take one step at a time so we only supported literal names and replace related `LoadStatic` usages to `LoadGlobal`. Based on that, we'd further implement `LoadAddress` to handle loading address specifically. Two `LoadGlobal` and `LoadAddress` will both support the registry-based style that is currently used by `name_ref_ops`.
+
+Another topic of this week was to merge more primitive ops to `CallC`, since it's design has become more and more mature. There are some remaining ops that are tricky and need special handling like adding new error kinds and corresponding error transforms.
+
+On Thursday, Jukka, Sullivan and I had our first monthly meeting. We discussed about name generation in mypyc, and a plan to implement low-level integer/pointer arithmetic to help represent some marcos and inline functions.
+
+As a summary, this week we have the following issues and PRs:
+
+- Issues:
+  - [Integer and pointer operations in new IR](https://github.com/mypyc/mypyc/issues/741) by Jukka, ongoing
+
+- PRs
+  - [[mypyc] Add LoadGlobal IR](https://github.com/python/mypy/pull/8973) merged
+  - [[mypyc] Refactor name generation in Load/InitStatic](https://github.com/python/mypy/pull/8987) closed since #8973 handles it
+  - [[mypyc] Translate more primitive ops to CallC](https://github.com/python/mypy/pull/9012)
+  - [[mypyc] Translate more primitive ops to CallC](https://github.com/python/mypy/pull/9014)
+  - [[mypyc] Merge int ops(for int_rprimitive) to CallC](https://github.com/python/mypy/pull/9019)
+
+
 ## Week 3: 2020-06-08 ~ 2020-06-14
 
 This week we focused on representing `name_ref` with a new IR element since it's semantically different from what `CallC` represents. The `name_ref_op`s load global names, therefore we purposed [#8973](https://github.com/python/mypy/pull/8973) as the first attempt. Soon, we realized that `LoadStatic` and `LoadGlobal` have similar purposes and should be merged eventually. Jukka also mentioned about moving mypyc's name generation/mangling logic from codegen to irbuild. Name generation is a little bit messy now since it happens in plenty of processes.
