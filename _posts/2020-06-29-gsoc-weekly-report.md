@@ -15,6 +15,20 @@ If you have any questions, please feel free to reach [TH3CHARLie](mailto:th3char
 The following posts will be a stack, it always starts with the newest update.
 
 <!--more-->
+
+## Week 5: 2020-06-22 ~ 2020-06-28
+
+This week we focused on dealing with `call_negative_bool_emit` and `negative_int_emit`. These are two customized emit callback functions designed to handle the difference between C function return values and expected python values. To address this, we introduced a new `error_kind` variant and its corresponding branch variant, adding a new `Branch` op to handle the negative int comparison via the exception transform. These changes helped us to solve the `call_negative_bool_emit` case. To handle the remaining one, we added a new `Truncate` op to represent the cast from C int return value to bool explicitly in IR level.
+
+After these two changes, we'd able to represent most of existing primitive ops, the remaining ones would be `simple_emit` and `name_ref`.
+
+As a summary, this week we have the following PRs:
+
+- [[mypyc] Introduce subcommand to mypyc command line interface](https://github.com/python/mypy/pull/9030), ongoing
+- [[mypyc] new error_kind and branch variant to handle call_negative_bool_emit](https://github.com/python/mypy/pull/9035), ongoing
+- [[mypyc] handle negative_int_emit and Truncate op](https://github.com/python/mypy/pull/9050), merged
+
+
 ## Week 4: 2020-06-15 ~ 2020-06-21
 
 This week started with refactoring [#8973](https://github.com/python/mypy/pull/8973), we decided to take one step at a time so we only supported literal names and replace related `LoadStatic` usages to `LoadGlobal`. Based on that, we'd further implement `LoadAddress` to handle loading address specifically. Two `LoadGlobal` and `LoadAddress` will both support the registry-based style that is currently used by `name_ref_ops`.
@@ -31,9 +45,9 @@ As a summary, this week we have the following issues and PRs:
 - PRs
   - [[mypyc] Add LoadGlobal IR](https://github.com/python/mypy/pull/8973) merged
   - [[mypyc] Refactor name generation in Load/InitStatic](https://github.com/python/mypy/pull/8987) closed since #8973 handles it
-  - [[mypyc] Translate more primitive ops to CallC](https://github.com/python/mypy/pull/9012)
-  - [[mypyc] Translate more primitive ops to CallC](https://github.com/python/mypy/pull/9014)
-  - [[mypyc] Merge int ops(for int_rprimitive) to CallC](https://github.com/python/mypy/pull/9019)
+  - [[mypyc] Translate more primitive ops to CallC](https://github.com/python/mypy/pull/9012) merged
+  - [[mypyc] Translate more primitive ops to CallC](https://github.com/python/mypy/pull/9014) merged
+  - [[mypyc] Merge int ops(for int_rprimitive) to CallC](https://github.com/python/mypy/pull/9019) merged
 
 
 ## Week 3: 2020-06-08 ~ 2020-06-14
