@@ -16,6 +16,64 @@ The following posts will be a stack, it always starts with the newest update.
 
 <!--more-->
 
+## Week 9: 2020-07-20 ~ 2020-07-26
+
+This week we introduced const integer optimization to handle the verbosity problem introduced by low-level IR. With this optimization, we can inline all `LoadInt` ops in both pretty IR printing and generated C.
+
+We also added missing signed type casts to generated C and completely removed the C wrappers and merged all int logical ops into the new style.
+
+As a summary, this week we have the following PRs:
+
+- [[mypyc] Constant integer registers optimization](https://github.com/python/mypy/pull/9158), merged
+- [[mypyc] Fix signed integer comparison](https://github.com/python/mypy/pull/9163), merged
+- [[mypyc] Optimize const int regs during pretty IR printing](https://github.com/python/mypy/pull/9181), merged
+- [[mypyc] Expand int ops when operation contains at least one tagged int](https://github.com/python/mypy/pull/9187), merged
+- [[mypyc] Complete support of int comparison ops](https://github.com/python/mypy/pull/9189), merged
+
+## Week 8: 2020-07-13 ~ 2020-07-19
+
+This week we made several integer-op related improvement and bugfixes. We fixed the performance regression by generating inline compare statement when both operands are short ints. We also supported swapping operands, negating result and checking both operands when not equality check, to support all logical ops.
+
+For tagged ints, we stored doubled value in IR, instead of doubling them during codegen, this could potentially simplify other backends' implementations.
+
+As a summary, this week we have the following PRs:
+
+- [[mypyc] Generates inline compare statement on short ints and fix sieve performance regression](https://github.com/python/mypy/pull/9127), merged
+- [[mypyc] Check both operands when op is not eq or neq](https://github.com/python/mypy/pull/9148), merged
+- [[mypyc] Support swapping operands and negating result and merge int NEQ](https://github.com/python/mypy/pull/9149), merged
+- [[mypyc] LoadInt store doubled value if tagged integer](https://github.com/python/mypy/pull/9162), merged
+- [[mypyc] Refactor analysis package](https://github.com/python/mypy/pull/9164), merged
+
+## Week 7: 2020-07~06 ~ 2020-07-12
+
+Originally mypyc uses C wrapper functions to handle most integer operations so that the IR only need to generate simple calls to these wrapper. Although the IR side can be implemented very easily, the generalization can be hard to do for other backends. This week, we started to put our last week's discussion into practice, we add new low-level integer operations and use transforms and irbuild to build blocks of IRs representing the old C wrappers. With these modifications, mypyc now generates much more low-level and verbose IR for integer operations while keep the generated C code largely unchanged.
+
+We also merged a lot of other ops.
+
+At the end of this week, [mypyc-benchmarks](https://github.com/mypyc/mypyc-benchmarks) is online so we can monitor performance changes. There are two microbenchmark regressions happen on one of recent commit.
+
+As a summary, this week we have the following PRs:
+
+- [[mypyc] Add BinaryIntOp for low-level integer operations](https://github.com/python/mypy/pull/9108), merged
+- [[mypyc] Merge more primitive ops](https://github.com/python/mypy/pull/9110), merged
+- [[mypyc] low-level integer operations: integer equal](https://github.com/python/mypy/pull/9116), merged
+- [[mypyc] Properly box int32/int64](https://github.com/python/mypy/pull/9119), merged
+- [[mypyc] Merge exception ops](https://github.com/python/mypy/pull/9121), merged
+
+
+## Week 6: 2020-06-29 ~ 2020-07-05
+
+Recent weeks' progress enables us to represent most mypyc's existing primitives in new low-level style. This week we focus on two sets of remaining ops: `in` ops and exceptions-related ops. `in` ops have different calling order in C(and potentially other backends) compared to python syntax, therefore we supported argument reordering via optional argument order in `CallC`. For exception-related ops, they always fail and the old way uses inline function to generate a false boolean follows the call, which is both hard-to-generalize and inelegant. We introduced `ERR_ALWAYS` error kind and related transform to generate IRs representing this semantics.
+
+This week we also started to discuss the inline integer operations design at [Integer binary ops design discussion](https://github.com/mypyc/mypyc/issues/743).
+
+I took several days off this week until next Tuesday to handle some administrative works of my graduation.
+
+As a summary, this week we have the following PRs:
+
+- [[mypyc] Support argument reordering in CallC](https://github.com/python/mypy/pull/9067), merged
+- [[mypyc] Support ERR_ALWAYS](https://github.com/python/mypy/pull/9073), merged
+
 ## Week 5: 2020-06-22 ~ 2020-06-28
 
 This week we focused on dealing with `call_negative_bool_emit` and `negative_int_emit`. These are two customized emit callback functions designed to handle the difference between C function return values and expected python values. To address this, we introduced a new `error_kind` variant and its corresponding branch variant, adding a new `Branch` op to handle the negative int comparison via the exception transform. These changes helped us to solve the `call_negative_bool_emit` case. To handle the remaining one, we added a new `Truncate` op to represent the cast from C int return value to bool explicitly in IR level.
