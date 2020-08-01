@@ -15,6 +15,18 @@ If you have any questions, please feel free to reach [TH3CHARLie](mailto:th3char
 The following posts will be a stack, it always starts with the newest update.
 
 <!--more-->
+## Week 10: 2020-07-27 ~ 2020-08-01
+
+This week we place our focus on implementing groundwork to represent C structures in mypyc, which eventually helps us to transform the primitive ops that rely heavily on C macros to the new low-level style.
+
+We first introduced `LoadMem` IR to read value from a given memory address, which we'll need to read a struct attribute once we compute its address. We then introduced `RStruct` type to represent known CPython structures. To ensure the name uniqueness of each structure, we use a `StructInfo` to record the actual information and all `StructInfo` would be built and stored in registry. Having a separate `StructInfo` gives us the potential to change the current `RTuple` design so struct-like types will have a unified design. To proper compute the offsets and size after alignment, we introduce a set of utility functions along with the `RStruct` PR.
+
+As a summary, this week we have the following PRs:
+
+- [[mypyc] Introduce LoadMem](https://github.com/python/mypy/pull/9211), merged
+- [[mypyc] Introduce RStruct](https://github.com/python/mypy/pull/9215), merged
+- [[mypyc] Merge misc ops](https://github.com/python/mypy/pull/9224), merged
+
 
 ## Week 9: 2020-07-20 ~ 2020-07-26
 
