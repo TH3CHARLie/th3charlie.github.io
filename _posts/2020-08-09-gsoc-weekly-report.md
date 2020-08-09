@@ -15,6 +15,21 @@ If you have any questions, please feel free to reach [TH3CHARLie](mailto:th3char
 The following posts will be a stack, it always starts with the newest update.
 
 <!--more-->
+
+## Week 11: 2020-08-02 ~ 2020-08-08
+
+This week we firstly introduced `GetElementPtr`, an op to compute. the address of a field of an aggregate type. With this added, we then transformed `builtins.len` for list primitive into the low-level style, which was originally represented as a custom inline function. We also defined both `PyObjet` and `PyVarObject` to provide type information for struct-access ops. The successful merge of this op shows our new design has the expressiveness to handle ops related with structs, pointers and etc.
+
+Besides this, we also started to clean up the registry file-by-file, eliminating the remaining old-style ops.
+
+As a summary, this week we have the following PRs:
+
+- [[mypyc] Allow extra integer constant as the last argument to a C call](https://github.com/python/mypy/pull/9251), merged
+- [[mypyc] Merge most generic ops](https://github.com/python/mypy/pull/9258), merged
+- [[mypyc] Introduce GetElementPtr](https://github.com/python/mypy/pull/9260), merged
+- [[mypyc] Implement builtins.len primitive for list](https://github.com/python/mypy/pull/9271), merged
+- [[mypyc] Clean up unused int op definitions](https://github.com/python/mypy/pull/9276), merged
+
 ## Week 10: 2020-07-27 ~ 2020-08-01
 
 This week we place our focus on implementing groundwork to represent C structures in mypyc, which eventually helps us to transform the primitive ops that rely heavily on C macros to the new low-level style.
