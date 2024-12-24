@@ -1,6 +1,6 @@
 ---
 title: 如何复现一篇 SIGGRAPH 论文
-tags: [thoughts]
+tags: [research, thoughts]
 ---
 
 [SIGGRAPH](https://www.siggraph.org/)/[SIGGRAPH Asia](https://sa2019.siggraph.org/) 作为计算机图形学领域的顶级会议，每年分别在北美/环太平洋地区举办一次。该会议近年来每年约接收到 300-500 篇投稿，录用率在 20-30% 之间波动，故一年两次加起来录用的文章大概有200余篇。SIGGRAPH 一直代表了图形学科研的最高水平，学届几乎所有里程碑式的发展都可以在该会议的论文中找到。
